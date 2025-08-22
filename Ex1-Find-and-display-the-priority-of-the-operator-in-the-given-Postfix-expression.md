@@ -22,11 +22,6 @@ To write a C program to find and display the priority of the operator in the giv
 ```
 /*
 Program to find and display the priority of the operator in the given Postfix expression
-Developed by: 
-RegisterNumber:  
-*/
-/*
-Program to find and display the priority of the operator in the given Postfix expression
 Developed by: GANESH PRABHU J
 RegisterNumber:  212223220023
 */
