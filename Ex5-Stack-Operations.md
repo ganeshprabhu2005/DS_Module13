@@ -1,42 +1,63 @@
-# Ex5 Stack Operations
-## DATE:
+# Ex5 Count Inversions in an Array
+## DATE: 20/08/2025
 ## AIM:
-To write a C function to perform push and pop operation of the stack in the infix to postfix conversion.
-
+To write a Java program  to Count the number of inversions in an array where inversion is defined as: arr[i] > arr[j] and i < j
 ## Algorithm
-1. Start the program.
-2. Initialize top as -1 and declare stack as a character array.
-3. To push, increment top and assign the character to stack[top].
-4. To pop, check if top is -1 and return -1 if true. 
-5. If not, return stack[top] and decrement top.
+1.Read the size of the array n and input all elements into the array arr.
+
+2.Initialize an inversion counter count = 0.
+
+3.Use two nested loops:
+
+Outer loop: index i from 0 to n−1
+
+Inner loop: index j from i+1 to n−1
+
+4.For every pair (i, j), check:
+
+If arr[i] > arr[j], then increment the inversion counter.
+
+5.After all comparisons, output the total count of inversions.   
 
 ## Program:
 ```
 /*
-Program to find and display the priority of the operator in the given Postfix expression
+Program to Count the number of inversions in an array where inversion is defined as: arr[i] > arr[j] and i < j
 Developed by: GANESH PRABHU J
 RegisterNumber: 212223220023
-*/
-char stack[100]; 
-int top = -1; 
-void push(char x) 
-{ 
-    stack[++top] = x; 
-} 
-char pop() 
-{ 
-    if(top == -1) 
-        return -1; 
-    else 
-        return stack[top--]; 
-} 
+import java.util.*;
 
+public class CountInversions {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();         
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++)
+            arr[i] = sc.nextInt();
+
+        System.out.println(countInversions(arr, n));
+    }
+
+    static int countInversions(int[] arr, int n) {
+        int count = 0;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] > arr[j])
+                    count++;
+            }
+        }
+        return count;
+    }
+}
+*/
 ```
 
 ## Output:
+<img width="597" height="315" alt="image" src="https://github.com/user-attachments/assets/12c4c17d-9f86-45aa-9fb0-60b06b92bf00" />
 
-<img width="415" height="203" alt="437889229-4aceaa4e-89d1-4277-94d4-c5e55bca862f" src="https://github.com/user-attachments/assets/ea2e49f1-bdaa-46b2-a9d1-2f06d3c2c4da" />
+
+
 
 
 ## Result:
-Thus the C program to perform push and pop operation of the stack in the infix to postfix conversion is implemented successfully.
+Thus the Java program to to Count the number of inversions in an array where inversion is defined as: arr[i] > arr[j] and i < jis implemented successfully.
