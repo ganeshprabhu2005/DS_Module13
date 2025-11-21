@@ -1,99 +1,55 @@
-# Ex7 Removal of Nodes with a Specific Value from a Linked List
-## DATE:26-08-2025
+# EX 2
+## Count how many times a number appears in an array recursively.
+## DATE: 02-09-2025
 ## AIM:
-To write a java  program that removes all nodes from a linked list whose value matches a given integer (val) and returns the new head of the modified linked list.
+To write a Java program to Count how many times a number appears in an array recursively.
 
 ## Algorithm
-
-1.Move head forward until it reaches a node whose value is not equal to val. 
-
-2.If the list becomes empty, return null. 
-
-3.Start from the new head and traverse the list using a pointer (current).
-
-4.If current.next contains val, skip that node 
-
-5.Otherwise, move to the next node. Continue until the end, then return the modified head.
-
+1. Start the program.  
+2. Read the number of elements and store them in an array.  
+3. Get the number to be counted from the user.  
+4. Define a recursive function `countOccurrences()` that returns how many times the number appears.  
+5. Use base and recursive conditions to count occurrences.  
+6. Display the result.  
+7. Stop the program.   
 
 ## Program:
-```
+```java
 /*
-program that removes all nodes from a linked list whose value matches a given integer (val) and returns the new head of the modified linked list.
+Program Count how many times a number appears in an array recursively.
 Developed by: GANESH PRABHU J
-RegisterNumber: 212223220023
-
-
+Register Number: 212223220023
 */
-class RemoveNodes {
-    static class Node {
-        int data;
-        Node next;
 
-        Node(int data) {
-            this.data = data;
-            this.next = null;
-        }
-    }
+import java.util.Scanner;
 
-    static Node removeElements(Node head, int val) {
-        
-        while (head != null && head.data == val) {
-            head = head.next;
-        }
-
-        if (head == null) return null;
-
-        Node current = head;
-        while (current.next != null) {
-            if (current.next.data == val) {
-                current.next = current.next.next; // Skip node
-            } else {
-                current = current.next; // Move ahead
-            }
-        }
-
-        return head; // Return new head
-    }
-
-    static void display(Node head) {
-        Node temp = head;
-        while (temp != null) {
-            System.out.print(temp.data + " ");
-            temp = temp.next;
-        }
-        System.out.println();
+public class CountOccurrencesRecursive {
+    static int countOccurrences(int arr[], int n, int key) {
+        if (n == 0)
+            return 0;
+        return (arr[n - 1] == key ? 1 : 0) + countOccurrences(arr, n - 1, key);
     }
 
     public static void main(String[] args) {
-
-        Node head = new Node(1);
-        head.next = new Node(2);
-        head.next.next = new Node(6);
-        head.next.next.next = new Node(3);
-        head.next.next.next.next = new Node(6);
-        head.next.next.next.next.next = new Node(4);
-
-        System.out.println("Original Linked List:");
-        display(head);
-
-        int val = 6;
-
-        head = removeElements(head, val);
-
-        System.out.println("Linked List after removing value " + val + ":");
-        display(head);
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        System.out.println("Enter the elements:");
+        for (int i = 0; i < n; i++)
+            arr[i] = sc.nextInt();
+        System.out.print("Enter number to count: ");
+        int key = sc.nextInt();
+        System.out.println("The number " + key + " appears " + countOccurrences(arr, n, key) + " times.");
+        sc.close();
     }
 }
- 
-*/
 ```
 
 ## Output:
-
-<img width="577" height="178" alt="514427177-3fc5c634-4b7f-4c1f-a939-42d281793676" src="https://github.com/user-attachments/assets/8b491571-ae80-4bdb-9d3d-3aa8c413a212" />
+<img width="985" height="540" alt="image" src="https://github.com/user-attachments/assets/397a8639-8e9d-4bef-bb30-0a95baa40eb9" />
 
 
 
 ## Result:
-The java program successfully removes all nodes with the specified value (val) from the linked list and returns the new head.
+Thus, the Java program to Count how many times a number appears in an array recursively is implemented successfully.
