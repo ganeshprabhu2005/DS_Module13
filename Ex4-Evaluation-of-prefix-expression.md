@@ -1,85 +1,60 @@
-# Ex9 Finding the Longest Length of Nested Set in a Permutation Array
-## DATE: 02-09-2025
-## AIM:
-To write a program that finds the length of the longest set s[k] defined as s[k] = { nums[k], nums[nums[k]], nums[nums[nums[k]]], … },where the iteration stops before a duplicate element occurs.
+# Ex4 You are given a Java program that performs matrix addition. If Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension, what will be the nature (even/odd/mixed) of the resulting matrix?
+## DATE:14-08-2025
+## AI
+To write a java function to evaluate weather the given Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension and find the nature of resultant matrrix.
 
-The task is to return the maximum size among all such sets.
 ## Algorithm
-1.Create a visited array to mark elements already used in any set.
-
-2.For each index k, if it is not visited, start building the set S[k].
-
-3.Keep moving to nums[current], marking each element as visited.
-
-4.Count each step until you reach a visited element (duplicate).
-
-5.Update the maximum count found so far and return it.  
+1. Read matrix dimensions
+   Input the number of rows r and columns c.
+2. Read elements of Matrix A
+   Fill the 2D array A[r][c] by reading integers row-wise.
+3. Read elements of Matrix B
+   Fill the 2D array B[r][c] similarly by reading integers row-wise.
+4. Add corresponding elements of both matrices
+   For each position (i, j), compute A[i][j] + B[i][j]. 
+5. Print the resulting matrix
+   Output each sum in matrix form, one row per line.  
 
 ## Program:
 ```
 /*
-program that removes all nodes from a linked list whose value matches a given integer (val) and returns the new head of the modified linked list.
+Program to ind the nature of resultant matrrix.
 Developed by: GANESH PRABHU J
 RegisterNumber: 212223220023
 
-*/
-import java.util.Scanner;
+import java.util.*;
 
-class LongestSet {
-
-    public static int longestSetLength(int[] nums) {
-        boolean[] visited = new boolean[nums.length];
-        int maxLength = 0;
-
-        for (int i = 0; i < nums.length; i++) {
-            if (!visited[i]) {
-                int count = 0;
-                int current = i;
-
-                while (!visited[current]) {
-                    visited[current] = true;
-                    current = nums[current];
-                    count++;
-                }
-
-                maxLength = Math.max(maxLength, count);
-            }
-        }
-
-        return maxLength;
-    }
-
+public class MatrixAddShort {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int r = sc.nextInt(), c = sc.nextInt();
+        int[][] A = new int[r][c], B = new int[r][c];
 
-        System.out.print("Enter the array size: ");
-        int n = sc.nextInt();
+        for (int i = 0; i < r; i++)  
+            for (int j = 0; j < c; j++)
+                A[i][j] = sc.nextInt();
 
-        int[] nums = new int[n];
+        for (int i = 0; i < r; i++)  
+            for (int j = 0; j < c; j++)
+                B[i][j] = sc.nextInt();
 
-      
-        System.out.println("Enter " + n + " elements:");
-        for (int i = 0; i < n; i++) {
-            nums[i] = sc.nextInt();
+       
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++)
+                System.out.print((A[i][j] + B[i][j]) + " ");
+            System.out.println();
         }
-
-        int result = longestSetLength(nums);
-        System.out.println("Maximum size of S[k] = " + result);
-
-        sc.close();
     }
 }
 
-   
 */
-
 ```
 
 ## Output:
 
 
-<img width="435" height="89" alt="514428739-4eacad87-879a-439c-8de7-a72bb850f9c1" src="https://github.com/user-attachments/assets/37b9b1d0-0088-4984-a29c-6a4b13bee701" />
+<img width="451" height="704" alt="image" src="https://github.com/user-attachments/assets/4100fb70-69a4-4f08-aa17-86d01d55c951" />
 
 
 ## Result:
-The program successfully computes the longest length of the nested set s[k] for the given permutation array.
+Thus, the java program to evaluate weather the given Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension and find the nature of resultant matrrix is implemented successfully.
